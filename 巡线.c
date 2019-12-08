@@ -1,0 +1,32 @@
+task main()
+{
+	setMotorSpeed(motor1,100);
+	setMotorSpeed(motor6,100);
+	sleep(1000);
+	while(getMotorEncoder(motor1)<2800)
+	{
+		if(getColorGrayscale(port3)<90)
+		{
+			setMotorSpeed(motor1,0);
+			setMotorSpeed(motor6,80);
+		}
+		else
+		{
+			setMotorSpeed(motor1,80);
+			setMotorSpeed(motor6,0);
+		}
+	}
+	while(getMotorEncoder(motor1)>=2800)
+	{
+		if(getColorGrayscale(port3)<90)
+		{
+			setMotorSpeed(motor1,80);
+			setMotorSpeed(motor6,0);
+		}
+		else
+		{
+			setMotorSpeed(motor1,0);
+			setMotorSpeed(motor6,80);
+		}
+	}
+}
